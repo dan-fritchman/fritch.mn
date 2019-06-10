@@ -5,11 +5,23 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
     'gatsby-plugin-catch-links',
+    `gatsby-plugin-sharp`,
     {
-      resolve: 'gatsby-plugin-mdx',
+      resolve: `gatsby-mdx`,
       options: {
         extensions: ['.mdx', '.md'],
-        remarkPlugins: [require('remark-slug'), require('remark-emoji')]
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              linkImagesToOriginal: false,
+              maxWidth: 740,
+              wrapperStyle:
+                'margin-left: 0!important; margin-right: 0!important;',
+              sizeByPixelDensity: true
+            }
+          }
+        ]
       }
     },
     {
@@ -21,13 +33,15 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-page-creator',
       options: {
+        name: 'www',
         path: path.join(__dirname, '../../www/')
       }
     },
     {
-      resolve: 'gatsby-plugin-page-creator',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: path.join(__dirname, 'src/pages')
+        name: 'www',
+        path: path.join(__dirname, '../../www/')
       }
     },
     {

@@ -3,7 +3,7 @@ import {Helmet} from 'react-helmet'
 
 export default () => (
   <Helmet>
-    <title>MDX</title>
-    <meta name="description" content="Markdown for the component era" />
+    <title>fritch.mn</title>
+    <meta name="description" content="fritch.mn" />
   </Helmet>
 )

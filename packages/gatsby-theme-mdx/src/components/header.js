@@ -1,11 +1,62 @@
 import React from 'react'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
 import { css } from 'theme-ui'
 import pkg from '@mdx-js/mdx/package.json'
 import Burger from './burger'
 import theme from './theme'
 import DarkToggle from './dark-toggle'
 import Search from './search'
+
+const socialLinks = [
+  {
+    name: "GitHub",
+    logo: "github",
+    url: "https://github.com/dan-fritchman"
+  },
+  {
+    name: "GitLab",
+    logo: "gitlab",
+    url: "https://gitlab.com/dan-fritchman"
+  },
+  {
+    name: "Medium",
+    logo: "medium",
+    url: "https://medium.com/@dan_fritchman"
+  },
+  {
+    name: "Twitter",
+    logo: "twitter",
+    url: "https://twitter.com/dan_fritchman"
+  },
+  {
+    name: "Facebook",
+    logo: "facebook",
+    url: "https://www.facebook.com/danfritchman"
+  },
+  {
+    name: "LinkedIn",
+    logo: "linkedin",
+    url: "https://www.linkedin.com/in/danfritchman/"
+  }
+];
+
+const LogoLink = props => {
+  const { url, logo, name, dark } = props;
+  return <a
+    href={url}
+    css={css({
+      display: 'flex',
+      alignItems: 'center',
+      p: 3,
+      color: 'inherit'
+    })}
+  >
+    <img
+      src={`https://icon.now.sh/${logo}/24/${dark ? 'fff' : '000'}`}
+      alt={name}
+    />
+  </a>
+}
 
 const MenuButton = props => (
   <button
@@ -30,7 +81,7 @@ const MenuButton = props => (
   </button>
 )
 
-export default ({toggleMenu, dark, setDark}) => (
+export default ({ toggleMenu, dark, setDark }) => (
   <header
     css={css({
       display: 'flex',
@@ -50,8 +101,8 @@ export default ({toggleMenu, dark, setDark}) => (
       })}
     >
       <img
-        src="https://mdx-logo.now.sh"
-        alt="MDX logo"
+        src="https://github.com/dan-fritchman.png"
+        alt="fritch.mn"
         height="32"
         css={css({
           mr: 3
@@ -65,25 +116,13 @@ export default ({toggleMenu, dark, setDark}) => (
           }
         }}
       >
-        MDX v{pkg.version}
+        fritch.mn
       </span>
     </Link>
-    <div css={{margin: 'auto'}} />
+    <div css={{ margin: 'auto' }} />
+
+    {socialLinks.map(s => <LogoLink dark={dark} {...s} />)}
     <Search />
-    <a
-      href="https://github.com/mdx-js/mdx"
-      css={css({
-        display: 'flex',
-        alignItems: 'center',
-        p: 3,
-        color: 'inherit'
-      })}
-    >
-      <img
-        src={`https://icon.now.sh/github/24/${dark ? 'fff' : '000'}`}
-        alt="GitHub logo"
-      />
-    </a>
     <DarkToggle dark={dark} setDark={setDark} />
     <MenuButton
       onClick={toggleMenu}

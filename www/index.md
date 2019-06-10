@@ -1,15 +1,12 @@
+# fritch.mn
 
-# dan-fritchman.github.io
-
-GitHub Pages site for https://github.com/dan-fritchman
+Fritchman Home.  Mostly Dan. 
 
 ## Links
 
-* [Software Makes Hardware](https://hw21.github.io/SwMakesHw)
-    * On [Medium](https://medium.com/software-makes-hardware)
+*   [Software Makes Hardware](https://hw21.github.io/SwMakesHw)
+    *   [On Medium](https://medium.com/software-makes-hardware)
 
-## My More Random Bits of Writing
+## More Random Bits of Writing
 
-* [Who Deserves the NBA's Gold Patch?](./nba-patches)
-
-
+*   [Who Deserves the NBA's Gold Patch?](./nba-patches)
