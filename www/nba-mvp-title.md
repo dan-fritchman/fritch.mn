@@ -4,7 +4,7 @@
 
 A deep learning, big data analysis. 
 
-Using the latest advances in machine learning and artificial intelligence, leading experts at the University of California, Berkeley\* answer an age-old sports media question: *Can {Player X} Lead a Team to an NBA Title?*. 
+Using the latest advances in machine learning and artificial intelligence, leading experts at the University of California, Berkeley\* answer an age-old sports media question: *Can {Player X} Lead a Team to an NBA Title?* 
 
 A diagram of the neural network used to make these predictions:
 
@@ -22,7 +22,7 @@ Has {Player X} won the regular season MVP?
 
 In case it didn’t land, everything about machine learning, AI, and interpretability here is a joke.  (Although it may still work better than many other ML-led investigations.)  
 
-The real thesis: there is a single high-confidence predictor that {Player X} can lead a team to a championship: whether they have won the league's regular-season MVP.  
+The real thesis: there is a single high-confidence predictor that {Player X} can lead a team to a championship - whether they have won the league's regular-season MVP.  
 
 
 ## NBA MVP: Basketball's Most Select Group
@@ -34,11 +34,11 @@ The NBA's MVP is the sport's most elite club.  With only thirty-four members, it
 Debates of whether {Player X} can lead a team to the title tend to focus on {Player X}s a notch or two below the MVP level: Damian Lillard, Carmelo Anthony, and a similar cohort of second tier stars.  *MVPs Only* has a simple answer for all of them: no.  
 
 
-### Is it really this simple? 
+### Is It Really This Simple? 
 
 Mostly.  Note that although ostensibly about players, *MVPs Only* really serves as a prescription for which *teams* have a chance to win the championship.  And since only one of the teams which *can* win each season's championship ultimately does, *MVPs Only* really only identifies the teams which it predicts cannot. 
 
-So - how often has a this been wrong?  How frequently does a team without a regular-season MVP win the championship?  
+So - how often has this been wrong?  How frequently does a team without a regular-season MVP win the championship?  
 
 * Once in the past 10 years
 * Twice in the past 20 years 
@@ -65,13 +65,15 @@ The sixty-year history of exceptions to *MVPs Only* is short enough to review al
 
 You may have noticed a prominent failure of *MVPs Only*: it missed the NBA's reigning champions, the 2019 Toronto Raptors.  
 
-The Raptors are a particularly unlikely champion in *MVPs Only*'s framing, particularly because they were *led* by an unambigously best player, and that player has not won the MVP.
+The Raptors are a particularly unlikely champion in *MVPs Only*'s framing, particularly because they were *led* by an unambiguously best player, and that player has not won the MVP.
 
-There are a few senses in which we might say a basketball team was *led* by a particular player.  Although every champion has several great players, most have an outwardly evident on-court pecking order.  No debate lingers about who *led* the 1998 Bulls, 2009 Lakers, or 2016 Cavaliers.  Fewer great teams are *led* by committee.  Champions with ambiguities in pecking order tend to have *all* of the leadership candidates at the MVP level: Shaq and  Kobe, Curry and Durant, Magic and Kareem.  But the smallest group of champions are those unambigously *led* by a single player, who was not a league MVP.  This has happened only twice: in 1975 by Rick Barry, and in 2019 by Kawhi Leonard. 
+There are a few senses in which we might say a basketball team was *led* by a particular player.  Although every champion has several great players, most have an outwardly evident on-court pecking order.  No debate lingers about who *led* the 1998 Bulls, 2009 Lakers, or 2016 Cavaliers.  Fewer great teams are *led* by committee.  Champions with ambiguities in pecking order tend to have *all* of the leadership candidates at the MVP level: Shaq and  Kobe, Curry and Durant, Magic and Kareem.  But the smallest group of champions are those unambiguously *led* by a single player, who was not a league MVP.  This has happened only twice: in 1975 by Rick Barry, and in 2019 by Kawhi Leonard. 
 
-Leonard finished second in MVP voting in 2016, and third in 2017.  After an 2018 season lost to injury and a "load managed" 2019 regular season, Kawhi *played at an MVP level* throughout the 2019 playoffs.  He also has a perfectly good chance to win a future regular-season MVP.  The Raptors also saw their top-heavy Finals opponents met with unusually poor injury luck.  (Although many champions have seen similar benefits.)  Absent the Warrior's star injuries, it's likely *MVPs Only* would have prevailed again in 2019. 
+Leonard finished second in MVP voting in 2016, and third in 2017.  After an 2018 season lost to injury and a "load managed" 2019 regular season, Kawhi *played at an MVP level* throughout the 2019 playoffs.  He also has a perfectly good chance to win a future regular-season MVP.  
 
-The *MVPs Only* thesis existed long before Toronto won the 2019 Championship.  (Several drafts of this article did as well.)  Its publication coming shortly after one of its largest failures is somewhat intentional.  It adds an interesting question: how much to continue to trust sixty years of history, and how much to believe that things have changed. 
+The Raptors also saw their top-heavy Finals opponents met with unusually poor injury luck.  (Although many champions have seen similar benefits.)  Absent the Warrior's star injuries, it's likely *MVPs Only* would have prevailed again in 2019. 
+
+The *MVPs Only* thesis existed long before Toronto won the 2019 Championship.  (Several drafts of this article did as well.)  Its publication coming shortly after one of its largest failures is somewhat intentional.  It adds a set of interesting questions: how much to continue to trust sixty years of history, and how much to believe that things have changed. 
 
 
 ### 1989, 1990, & 2004 Detroit Pistons
@@ -82,7 +84,7 @@ Led by Chauncey Billups, Ben Wallace, Rasheed Wallace, and Richard Hamilton, the
 
 At least during their NBA Finals, the 2004 Pistons benefitted from a similar set of circumstances to the 2019 Raptors.  They faced a short-lived dynasty, seemingly on its last legs, at the end of a season mired by internal drama, lacking depth due to years of star acquisitions and role-player defections.  And perhaps most crucially, some of that top-heavy talent was injured for each NBA Finals. 
 
-The 1989 and 1990 Pistons featured a similarly Hall-of-Fame-bound, relatively balanced cast, including Isaih Thomas, Joe Dumars, Dennis Rodman, and Bill Laimbeer.  While three are in the Hall of Fame, only Thomas ever cracked the top five in MVP voting.  
+The 1989 and 1990 Pistons featured a similarly Hall-of-Fame-bound, relatively balanced cast, including Isiah Thomas, Joe Dumars, Dennis Rodman, and Bill Laimbeer.  While three are in the Hall of Fame, only Thomas ever cracked the top five in MVP voting.  
 
 ### The Late 1970s: The NBA's Weirdest Era 
 
@@ -100,16 +102,16 @@ Both won in an era when the NBA was just not as good.
 
 ## The Lone Future MVP: Larry Bird
 
-Of past 60 champions, only the Shaq-Kobe Lakers, Duncan-Robinson Spurs, and 1981 Celtics featured a *future* MVP, who had not yet won.  The Lakers and Spurs complemented them with other *past* MVPs.  Only the 1981 Celtics were undisputably led by a future MVP, Larry Bird. 
+Of the past 60 champions, only the Shaq-Kobe Lakers, Duncan-Robinson Spurs, and 1981 Celtics featured a *future* MVP, who had not yet won but ultimately would.  The Lakers and Spurs complemented them with other *past* MVPs.  Only the 1981 Celtics were indisputably led by a future MVP, Larry Bird. 
 
 Although not as crazy as the late 1970s, the 1981 season was pretty weird.  *Both* Western Conference finalists (Rockets and Kings) had losing regular-season records.  In the de facto NBA Finals, Boston completed a 3-1 comeback to beat Philadelphia in seven games.  Five of the seven were decided by two points or less.  The Celtics and 76ers also had the season's top two MVP candidates; Bird lost the voting to Julius Erving in one of the closest votes in league history.  Bird would go on to three MVPs of his own, winning consecutively in 1984, 85 and 86.  
 
 
 ## Borderline Cases
 
-A few cases meet *MVPs Only*, but with potential caveats.  Most of these cases involve questions of who *led* a championship team, between an MVP and another (non-MVP) star.  The 2006 Miami Heat, *led* in this sense by 2000 MVP Shaquille O'Neal, fit this description, as they were arguably instead led by non-MVP Dwyane Wade.  They are probably the best case of two players *near* MVP level - one slightly before his peak, and the other slightly past it - being enough to win the championship.  The 2008 Celtics, featuring Kevin Garnett, Paul Pierce, and Ray Allen provide a similar example with a cast of three. 
+A few cases meet *MVPs Only*, but with potential caveats.  Most of these cases involve questions of who *led* a championship team, between an MVP and another (non-MVP) star.  The 2006 Miami Heat, *led* in this sense by 2000 MVP Shaquille O'Neal, fit this description, as they were arguably instead led by non-MVP Dwyane Wade.  They are probably the best case of two players *near* MVP level - one slightly before his peak, and the other slightly past it - being enough to win the championship.  The 2008 Celtics, featuring Kevin Garnett, Paul Pierce, and Ray Allen, provide a similar example with a cast of three. 
 
-All of these champions had the one thing that *MVPs Only* predicts they need: at least one MVP-level player.  That they had other players performing at near their MVPs level only improved their chances. 
+All of these champions had the one thing that *MVPs Only* predicts they need: at least one MVP-level player.  That they had other players performing at near their MVP's level only improved their chances. 
 
 
 ## Did 2019 Change Everything? 
@@ -130,7 +132,7 @@ Entering the 2019-20 season, there will be seven active MVPs on seven teams\*\*\
 * Golden State Warriors (Curry)
 * Oklahoma City Thunder (Westbrook)
 * Brooklyn Nets (Durant)
-* Detroit Pistons (Rose)
+* Detroit Pistons (Derrick Rose)
 
 Durant is likely to miss the 19-20 season due to injury, and Rose's past injuries have long ended the MVP-level portion of his career.  *MVPs Only* then leaves five teams with a chance at the 2020 championship: Milwaukee, Houston, Golden State, the Lakers, and OKC (or whichever team Westbrook ends up with).
 
@@ -149,11 +151,11 @@ The 2019-20 season may of course add a new member to basketball's most select gr
 * Joel Embiid: +1700
 * Russell Westbrook: +1800
 
-In addition to the five past MVPs, this top-ten list adds five players from three teams: Kawhi and Paul George from the Clippers, Lillard from Portland, and Embiid from Philadelphia.  Anthony Davis joins Lebron as Lakers' representatives.  
+In addition to the five past MVPs, this top-ten list adds five players from three teams: Kawhi and Paul George from the Clippers, Lillard from Portland, and Embiid from Philadelphia.  Anthony Davis joins Lebron as Lakers representatives.  
 
 It's rare for even seven teams to enter an NBA season with a realistic (say, greater than 1%) chance of winning a championship.  2019-20 looks to be unusually up for grabs.  Perhaps teams from outside this list (Utah, Denver) can claim just as good of chances to win the 2020 title.  
 
-But history says to expect one of league's MVPs to end up lifting the Larry O-B. 
+But history says to expect one of the MVPs to end up lifting the Larry O-B. 
 
 
 ---
