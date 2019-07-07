@@ -29,7 +29,7 @@ The real thesis: there is a single high-confidence predictor that {Player X} can
 
 There's a simple qualitative case for the *MVPs Only* outlook.  Success in basketball generally requires great individual talent.  At the highest levels, it requires *historically* great individual talent.  And the NBA MVP is the best indicator we have of these historic individuals.  
 
-The NBA's MVP is the sport's most elite club.  With only thirty-four members, it is among the most exclusive in all of sports.  More people have held the US presidency.  More people have been then King of England.  Over 10x as many are in the Basketball Hall of Fame, and nearly 20x as many have been to space.  In 2017, Donald Trump became America's 45th president - and Russell Westbrook became the NBA's 32nd MVP.  
+The NBA's MVP is the sport's most elite club.  With only thirty-four members, it is among the most exclusive in all of sports.  More people have held the US presidency.  More people have been the King of England.  Over 10x as many are in the Basketball Hall of Fame, and nearly 20x as many have been to space.  In 2017, Donald Trump became America's 45th president - and Russell Westbrook became the NBA's 32nd MVP.  
 
 Debates of whether {Player X} can lead a team to the title tend to focus on {Player X}s a notch or two below the MVP level: Damian Lillard, Carmelo Anthony, and a similar cohort of second tier stars.  *MVPs Only* has a simple answer for all of them: no.  
 
