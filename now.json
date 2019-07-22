@@ -1,7 +1,6 @@
 {
   "version": 2,
   "name": "fritch.mn",
-  "alias": ["fritch.mn", "www.fritch.mn"],
   "public": true,
   "builds": [
     {
