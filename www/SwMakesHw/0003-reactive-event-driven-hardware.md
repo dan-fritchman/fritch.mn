@@ -62,7 +62,7 @@ This is a fairly different idea of what assignment means.  Updating the value of
 
 Popular implementations of reactive programming patterns include the [Observable Notebook](https://observablehq.com/@observablehq/how-observable-runs), and everyone’s least favorite, Excel spreadsheet formulas.  Data is free to change well after formulas are entered; in fact this is generally the point.
 
-![obs](./img/observable.png)
+![obs](img/observable.png)
 
 In procedural programming languages, supporting the reactive style requires something like a dependency graph between variables, and a set of update methods called when an input variable changes value.  
 
@@ -80,7 +80,7 @@ endmodule
 
 These reactive assignments map directly to combinational logic, that is, logic in which the outputs are functions solely of the current state of the inputs.  For the verilog example above, we can imagine a synthesis program mapping to a logic circuit like so:
 
-![combo_sch](./img/combo_schematic.png)
+![combo_sch](img/combo_schematic.png)
 
 The HDL code is a platform-independent (process independent) description of this set of logic, which can be compiled to near arbitrary fabrication technology. 
 
