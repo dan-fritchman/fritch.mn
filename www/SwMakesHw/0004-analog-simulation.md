@@ -1,4 +1,4 @@
-Analog and transistor level simulation
+# Analog & Transistor-Level Simulation
 
 In past chapters we reviewed the simulation model of computation of most digital logic: a combination of event-driven and reactive logic.  This largely corresponds to sequential and combinational logic, respectively.
 
@@ -74,7 +74,15 @@ The solution of nonlinear circuits instead requires iterative techniques.  Setti
 
 Even taking an extra wide range of guesses, and an all too human path of updating them. We can see this is quickly converging towards the right answer, roughly 1.414.  
 
-Newton’s method adds a systematic algorithmic means of updating our guesses.  It requires an estimate of the derivative of the function being analyzed - a quantity which may be hard to find in general, but foretunatelt is generally available for the simulation of circuits.  Applying Newton’s method to the square root of two, we first cast the expression into an equation of the form f(x) = 0.
+Newton’s method adds a systematic algorithmic means of updating our guesses.  It requires an estimate of the derivative of the function being analyzed - a quantity which may be hard to find in general, but foretunately is generally available for the simulation of circuits.  Our recursive updates 
+
+![](img/newton_method.svg)
+
+Applying Newton’s method to the square root of two, we first cast the expression into an equation of the form f(x) = 0.
+
+$$
+a^2 + b^2 = c^2
+$$
 
 f(x) = x**2 - 2 = 0
 
@@ -109,7 +117,53 @@ Generally to invoke an iterative method, for example on the four transistor circ
 1. Assuming it requires refinement, Linearize the circuit about a given guess of its state.  Generally this involves computing the derivatives of the non-libear device equations.  
 2. The matrix solution to something is the change in guess 
 
-Dynamic / Tran 
+Where the linear case produced a matrix system which we could express as:
+
+G*x = s
+
+The non-linear case can be stated as something like: 
+
+G*x + Hg(x) = s
+
+Where Hg(x) is a matrix-valued function including all the non-linear component relationships.  
+Attempting to apply Newton's method, we cast our non-linear matrix system into the form form f(x) = 0:
+
+f(x) = G*x + Hg(x) - s = 0
+
+Finding an update criteria requires taking something like a derivative of this.  (Although this can in pricipal refer to a few different things, here we'll loosely refer to "derivatives" of these matrix-valued and vector-valued quantities, and hope it's clear from context what they are derivatives with respect to.)  The derivative of f(x) is also a matrix we'll call Jf(x), often referred to as the Jacobian of the equation-system. 
+
+Jf(x) = df(x)/dx 
+      = G + Jg(x)
+
+Where Jg(x) is the (again loosely defined) derivative of Hg(x). 
+
+x_k+1 = x_k - f(x_k) / Jf(x_k)
+Jf(x_k) * (x_k+1 - x_k) = - f(x_k) 
+Jf(x_k) * dx = - f(x_k) 
+
+Funny enough, finding each update requires solving a linear matrix system.  (Conveniently we just sorted out how to do so.)  Other than that, this looks very much like the scalar Newton case.  We have to evaluate: 
+
+(a) the function to be zeroed, at our last guess, and
+(b) its derivative, at our last guess
+
+Then make an update propoprtional to their ratio.  
+
+Note the evaluation of f(x_k) and Jf(x_k) requires evaluating all the non-linear device equations and their derivatives, and least for one data-point (x_k).  
+
+### Example
+
+Transistor inverter cell update? 
 
 
+## Dynamic / Tran 
+
+Everything reviewed so far works towards steady-state circuit responses.  For SPICE users, this corresponds to the DC analysis.  What a static circuit's response will be at time infinity - or any other time between now and infinity for that matter. 
+
+If there are dynamic elements...
+
+## Is This Real? 
+
+Fsho. 
+Examples of SPICE solvers
+Description of why its so much slower 
 
