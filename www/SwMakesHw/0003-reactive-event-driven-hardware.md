@@ -26,7 +26,7 @@ Popular asynchronous frameworks such as NodeJS and Python's asyncio (among the *
 
 Behavioral hardware simulation runs on a near-identical paradigm.  Events typically come in the form of changes elsewhere in the system, often of signal values.  HDLs include built-in syntax for capturing the sensitivity of a method -- or in HDL lingo, a *procedural block* -- to changes in signal values.  
 
-The event-driven pattern is commonly used to describe *sequential logic*, in which the outputs of a hardware module are functions of both the current inputs, and the module's current state.  Most digital hardware is both sequential and *synchronous*, in that its operations are triggered by edges of a widely distributed timing signal, commonly called the *clock*.  *Finite state machines* (FSMs) are among the 
+The event-driven pattern is commonly used to describe *sequential logic*, in which the outputs of a hardware module are functions of both the current inputs, and the module's current state.  Most digital hardware is both sequential and *synchronous*, in that its operations are triggered by edges of a widely distributed timing signal, commonly called the *clock*.  *Finite state machines* (FSMs) are among the most common examples.  
 
 ```verilog
 module fsm ( /* ... */ ) 
@@ -230,7 +230,7 @@ With all this groundwork in place, a basic simulation run-time turns out to be p
 * A current simulation `time`
 * (Some sort of) store of future `events`, often called the event queue
 
-Next, sort out what data structure works best for storing and processing future events.  There are a few helpful realizations to make here.  
+Next we'll sort out what data structure works best for storing and processing future events.  There are a few helpful realizations to make here.  
 
 * First, the simulation run-time's *causality contraint* is that events are executed in non-decreasing simulation-time order.  Events may be *added* to the queue in arbitrary order, but must be *executed* in the order of their simulation-time.  In other words, we can think of the event loop as executing events by *priority*, and event-priority is dictated by *minimum time*.  
 * Second, while we need to be able to find the minimum-time event, the order of the remaining events is irrelevant.  In principle we can maintain a fully sorted store of future events, but the majority of work required for sorting goes to waste.  We don't care much whether the, say, 499th and 500th-priority future events are in order, especially knowing that the execution of the preceding 498 may add more events before or in-between them. 
@@ -289,7 +289,7 @@ console.log("PAUSED!");
 sim.run(100);
 ```
 
-Running the `main.js` script which includes all this code generates output along these lines:
+Running EventSim’s`main.js`script, which includes all this code, generates output along these lines:
 
 ```
 yarn run v1.15.2
@@ -397,10 +397,10 @@ A reactive assignments conveys something very similar to the instantiation of, s
 
 * An *input program* to be compiled, and
 * A *target environment* to compile it for
-  * For a typical software compiler, this is generally the underlying platform: ARM or x86 instructions, Java or Python virtual-machine byte-code.
-  * For hardware synthesis, the target environment comprises a *logic cell library*, generally designed for a specific *process technology*.  Unlike the software compiler, this will often also include a set of *implementation constraints*, for example on the target speed or size. 
 
-The reactive HDL assignments enable a target-independent description of the hardware "program" to be compiled.  We can imagine the `combinational` module being usable in TSMC 16nm FinFET, decades-old 1µm, and every process technology in between. 
+For a typical software compiler, the target environment is generally the underlying platform: ARM or x86 instructions, Java or Python virtual-machine byte-code. For hardware synthesis, in contrast, the target environment comprises a logic cell library, generally designed for a specific process technology. Unlike the software compiler, this will often also include a set of implementation constraints, for example on the target speed or size.
+
+Reactive HDL assignments enable a target-independent description of the hardware “program” to be compiled. We can imagine the `combinational`module being usable in TSMC 16nm FinFET, decades-old 1µm, and every process technology in between.
 
 While the reactive pattern is powerful for this platform-independent description of combinational logic,  it remains a fairly low-level behavioral description.  Reactive assignments can capture the combinational relationships between hardware signals, but have no means of incorporating the state, or history, of the system.  This is where the event-driven descriptions typically come in. 
 
@@ -408,7 +408,7 @@ While the reactive pattern is powerful for this platform-independent description
 
 The hardware-programming styles we've introduced so far generally resemble a C++-ish level of abstraction and productivity.  The most elaborate of these facilities (behavioral procedures, platform-independent modules) were introduced with the industry's primary HDLs (Verilog and VHDL) in the mid 1980s.  In 2019, nearly every complex piece of digital hardware is still written in either Verilog or VHDL.  In over three decades of their lifetime, no consensus has emerged in the hardware community on how to raise the level of designer productivity to mirror that of modern, programmer-centric software languages.  
 
-The initial, and perhaps still most prevalent, efforts use a set of scripting languages (Perl, Bash, or TCL) to generate Verilog or VHDL.  (A particularly *SAD!* and popular such house-of-cards is built of emacs macros.) 
+The initial, and perhaps still most prevalent, efforts use a set of scripting languages (Perl, Bash, or TCL) to generate Verilog or VHDL.  (A particularly popular and *SAD!* such house-of-cards is built of emacs macros.) 
 
 More recently, two competing approaches to improving hardware productivity have emerged.  The first, generally referred to as *High-Level Synthesis* (HLS), refers to a set of tools and techniques which attempt to describe hardware *functionality* in a relatively low-level software language such as C++, removing all of the hardware abstractions such as modules, ports, signals, and wires.  HLS dramatically elevates the described level of hardware abstraction - effectively removing it altogether -- without materially changing the abstraction level of the *description language*. 
 
