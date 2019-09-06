@@ -24,7 +24,7 @@ Where the "stuff" happening can be described as a series of *events*.  In a web 
 
 Popular asynchronous frameworks such as NodeJS and Python's asyncio (among the *really popular* software referenced earlier) execute asynchronous code in what is generally called an *event loop*.  Application code dictates what events are added, and the background execution-engine sorts out when they are to execute, and runs them one at a time.  Note that while these libraries can *appear* to use parallelism, most do not.  The event-loop construct instead uses *concurrency*.  NodeJS is notably outspoken in its single-threaded-ness.  Note no locks, semaphores, or other hallmarks of parallel-programming are generally required to use Node.  (This has likely been a significant source of its immense popularity.)  
 
-Behavioral harware simulation runs on a near-identical paradigm.  Events typically come in the form of changes elsewhere in the system, often of signal values.  HDLs include built-in syntax for capturing the sensitivity of a method -- or in HDL lingo, a *procedural block* -- to changes in signal values.  
+Behavioral hardware simulation runs on a near-identical paradigm.  Events typically come in the form of changes elsewhere in the system, often of signal values.  HDLs include built-in syntax for capturing the sensitivity of a method -- or in HDL lingo, a *procedural block* -- to changes in signal values.  
 
 The event-driven pattern is commonly used to describe *sequential logic*, in which the outputs of a hardware module are functions of both the current inputs, and the module's current state.  Most digital hardware is both sequential and *synchronous*, in that its operations are triggered by edges of a widely distributed timing signal, commonly called the *clock*.  *Finite state machines* (FSMs) are among the 
 
@@ -345,7 +345,7 @@ c
 3
 ```
 
-The imperative assignment statement `c = a + b` refers to the *values* of a and b, *now* -- at the time of the assignment. 
+The imperative assignment statement `c = a + b` refers to the *values* of `a` and `b`, *now* -- at the time of the assignment. 
 
 In the reactive pattern, assignment means something quite different -- essentially that `c` should hereby equal the sum, of `a` and `b`, *forever*.
 
@@ -393,7 +393,7 @@ These reactive assignments map directly to *combinational circuits*, that is, lo
 
 ![combo_sch](img/combo_schematic.png)
 
-The reactive assignments convey something very similar to the instantiation of, say, and AND gate: the output shall equal the AND function between its inputs, not just at the time of assignment, but at all times.  The primary utility of the HDL code is in providing a platform-independent (or in chip terms, *process technology*-independent) description of this set of logic.  Like other compilers, logic synthesis generally requires two primary inputs: 
+A reactive assignments conveys something very similar to the instantiation of, say, an AND gate: the output shall equal the AND function between its inputs, not just at the time of assignment, but at all times.  The primary utility of the HDL code is in providing a platform-independent (or in chip terms, *process technology*-independent) description of this set of logic.  Like other compilers, logic synthesis generally requires two primary inputs: 
 
 * An *input program* to be compiled, and
 * A *target environment* to compile it for
