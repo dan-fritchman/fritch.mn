@@ -3,15 +3,15 @@
 
 [Past *Software Makes Hardware* chapters](https://medium.com/software-makes-hardware/the-languages-of-hardware-2954e2138718) introduced a hardware abstraction ladder, including physical, structural, and behavioral layers.  Here we'll dig into the common patterns at the *behavioral layer* - which will look surprisingly familiar to users of modern, asynchronous, concurrent environments such as NodeJs or Python's asyncio. 
 
-Behavioral hardware programming - or as chip-folks call it, hardware *description* - came into vogue around the mid 1980s.  The industry's two most popular hardware description languages (HDLs), Verilog and VHDL, were introduced around the same time.  While Verilog and VHDL both support the lower *structural layer*, their new contribution was the addition of the behavioral features described here.  The general idea is that instead of directly programming a piece of hardware's *structural content* - essentially a hierarchical list of components and connections - designers can describe what a hardware block *does*, at a slightly higher level of abstraction.  
+Behavioral hardware programming - or as chip-folks call it, hardware *description* - came into vogue around the mid 1980s.  The industry's two most popular hardware description languages (HDLs), Verilog and VHDL, were both introduced in these early HDL days.  While Verilog and VHDL both support the lower structural layer, their new contribution was the addition of the behavioral features described here.  The general idea is that instead of directly programming a piece of hardware's *structural content* - essentially a hierarchical list of components and connections - designers can describe what a hardware block *does*, at a slightly higher level of abstraction.  
 
-Nearly every complex piece of digital hardware you use was written in either Verilog or VHDL.  This includes essentially every chip required for your reading this article -- your computer (or smartphone) CPU, the network interface transmitting and receiving this document, and the GPU rendering it on your screen.  
+Nearly every complex piece of digital hardware you use was written in either Verilog or VHDL.  This includes essentially every chip required for reading this article -- your computer (or smartphone) CPU, the network interface transmitting and receiving this document, and the GPU rendering it on your screen.  
 
 These languages generally resemble a C++-ish level of abstraction and productivity.  But HDLs centrally integrate a few programming paradigms which look, well, awfully shiny and new to a lot of programmers in 2019.  Behavioral HDL code particularly features the *event-driven* and *reactive* patterns widely used in modern asynchronous environments.  
 
 There is good reason for this.  Hardware is inherently "executing" in parallel; hardware "programs" therefore had to describe parallelism from day one.  Worse yet, complex hardware is doing *tons* of things in parallel - not just dozens or hundreds, but thousands or millions.  Mimicking that level of parallelism has generally required simulating it using *concurrency*.  (If that statement seems self-contradictory, check out the popular talk [*Concurrency is Not Parallelism*](https://blog.golang.org/concurrency-is-not-parallelism) from Google's Rob Pike.)
 
-As more software - and more *really popular* software - has become more concurrent, these ideas have seeped into the minds of more engineers.  
+As more software - and more *really popular* software - has become more concurrent, these concurrency patterns have seeped into the minds of more engineers.  
 
 ## Event-Driven Pattern
 
@@ -22,7 +22,7 @@ The *event-driven* paradigm can colloquially be described as something like:
 
 Where the "stuff" happening can be described as a series of *events*.  In a web environment, typical programmer-accessible events would include user interactions (clicks, keystrokes), timers, or the completion of slow asynchronous operations, such as file I/O or networking.  Below the surface, more native events trigger things like timers and background housekeeping. 
 
-Popular asynchronous frameworks such as NodeJS and Python's asyncio (among the *really popular* software referenced earlier) execute asynchronous code in what is generally called an *event loop*.  Application code dictates what events are added, and the background execution-engine sorts out when they are to execute, and runs them one at a time.  Note that while these libraries can *appear* to use parallelism, most do not.  The event-loop construct instead uses *concurrency*.  NodeJS is notably outspoken in its single-threaded-ness.  Note no locks, semaphores, or other hallmarks of parallel-programming are generally required to use Node.  (This has likely been a significant source of its immense popularity.)  
+Popular asynchronous frameworks such as NodeJS and Python's asyncio (among the *really popular* software referenced earlier) execute asynchronous code in what is generally called an *event loop*.  Application code dictates what events are added, and the background execution-engine sorts out when they are to execute, and runs them one at a time.  Note that while these libraries can *appear* to use parallelism, most do not.  The event-loop construct instead uses *concurrency*.  NodeJS is particularly outspoken in its single-threaded-ness.  Note no locks, semaphores, or other hallmarks of parallel-programming are generally required to use Node.  (This has likely been a significant source of its immense popularity.)  
 
 Behavioral hardware simulation runs on a near-identical paradigm.  Events typically come in the form of changes elsewhere in the system, often of signal values.  HDLs include built-in syntax for capturing the sensitivity of a method -- or in HDL lingo, a *procedural block* -- to changes in signal values.  
 
@@ -139,11 +139,11 @@ PyObject * PyEval_EvalFrame(PyFrameObject *f) {
 
 ## The Two Run-Times
 
-By now you may be wondering, when does any of this HDL code run?   Unlike typical software, behavioral HDL code operates in (at least) two essential runtimes: 
+By now you may be wondering, when does any of this HDL code *run*?   Unlike typical software, behavioral HDL code operates in (at least) two essential runtimes: 
 
 * *Logic Synthesis* is the compilation of behavioral HDL code into lower level representation, usually logic gates.  
     * Think of this as the compiler.  Although note the output language from this compiler is often the same as its input, i.e. Verilog.  The output just uses the lower-level constructs and avoids the higher-level ones. 
-* *Simulation* is the runtime which predicts the hardwares behavior.  
+* *Simulation* is the runtime which predicts the hardware's behavior.  
     * Most of the behavioral constructs discussed here -- sensitivities, event loops, reactive updates, and the like -- apply to this simulation runtime.  
     * The model of digital simulation paired with these behavioral descriptions is called [*discrete-event simulation*](https://en.wikipedia.org/wiki/Discrete-event_simulation).  It is used in a number of fields outside electronics, but is particularly pervasive here.
 
@@ -186,7 +186,7 @@ Next we'll need some sort of hardware model.  We won't go through the heavy lift
 Looking back at the Verilog we've already seen, `modules` tend to be comprised of two categories of things:
 
 * *Structural content*, including signals, ports, parameters, and instances of other modules.  
-* *Procedural blocks*, which describe the module's behavior, in code that runs procedurally from beginning to end.  These look a lot like functions or class methods.  Annotations on each procedural block (`always`, `initial`, et al) describe the sensitivities which will cause them to run. 
+* *Procedural blocks*, which describe the module's behavior, in code that runs procedurally from beginning to end.  These look a lot like functions or class methods.  Annotations on each procedural block (`always`, `initial`, et al.) describe the sensitivities which will cause them to run. 
 
 These two categories look an awful lot like the classes of object-oriented languages such as Python or C++, or object-oriented-*ish* languages such as Javascript.  We'll use such a JavaScript class to represent a sample hardware module. 
 
@@ -228,14 +228,14 @@ Our starter hardware-module-class skips many of the features and niceties of a d
 With all this groundwork in place, a basic simulation run-time turns out to be pretty straightforward.  The most basic simulation has two data members: 
 
 * A current simulation `time`
-* (Some sort of) store of future `events`, often called the event queue
+* (Some sort of) store of future `events`, often called the *event queue*
 
 Next we'll sort out what data structure works best for storing and processing future events.  There are a few helpful realizations to make here.  
 
 * First, the simulation run-time's *causality contraint* is that events are executed in non-decreasing simulation-time order.  Events may be *added* to the queue in arbitrary order, but must be *executed* in the order of their simulation-time.  In other words, we can think of the event loop as executing events by *priority*, and event-priority is dictated by *minimum time*.  
 * Second, while we need to be able to find the minimum-time event, the order of the remaining events is irrelevant.  In principle we can maintain a fully sorted store of future events, but the majority of work required for sorting goes to waste.  We don't care much whether the, say, 499th and 500th-priority future events are in order, especially knowing that the execution of the preceding 498 may add more events before or in-between them. 
 
-Conveniently we have a well-known, fast, widely popular data structure with exactly these features: the (minimum heap)[https://en.wikipedia.org/wiki/Heap_(data_structure)].  (Some introductions to the heap even use this use-case as an introductory example.)  Nearly all popular languages have a robust implementation available in either built-in or widely popular external libraries.  For our JavaScript implementation we'll use the [collections](https://www.npmjs.com/package/collections) package available from NPM. 
+Conveniently there is a well-known, fast, widely popular data structure with exactly these features: the (minimum heap)[https://en.wikipedia.org/wiki/Heap_(data_structure)].  (Some introductions to the heap even use this use-case as an introductory example.)  Nearly all popular languages have a robust implementation available in either built-in or widely popular external libraries.  For our JavaScript implementation we'll use the [collections](https://www.npmjs.com/package/collections) package available from NPM. 
 
 With all these realizations in place, the `Sim` class implementing this runtime only needs three simple methods: 
 
@@ -410,7 +410,7 @@ The hardware-programming styles we've introduced so far generally resemble a C++
 
 The initial, and perhaps still most prevalent, efforts use a set of scripting languages (Perl, Bash, or TCL) to generate Verilog or VHDL.  (A particularly popular and *SAD!* such house-of-cards is built of emacs macros.) 
 
-More recently, two competing approaches to improving hardware productivity have emerged.  The first, generally referred to as *High-Level Synthesis* (HLS), refers to a set of tools and techniques which attempt to describe hardware *functionality* in a relatively low-level software language such as C++, removing all of the hardware abstractions such as modules, ports, signals, and wires.  HLS dramatically elevates the described level of hardware abstraction - effectively removing it altogether -- without materially changing the abstraction level of the *description language*. 
+More recently, two competing approaches to improving hardware productivity have emerged.  The first, generally referred to as *High-Level Synthesis* (HLS), refers to a set of tools and techniques which attempt to describe hardware *functionality* in a relatively low-level software language such as C++, removing all of the hardware abstractions such as modules, ports, signals, and wires.  HLS dramatically elevates the level of hardware abstraction - effectively removing it altogether -- without materially changing the abstraction level of the *description language*. 
 
 A newer and contrasting approach, primarily borne from academia, uses modern hardware-description *libraries* built atop existing programming languages.  These *modern HDLs* near universally eschew HLS, and in many cases drop the event-driven behavioral paradigm.  Modern HDLs instead focus on using high-productivity programming language facilities to manipulate structural hardware descriptions, perhaps incorporating the reactive, continuous assignments at the bottom of the behavioral hardware modeling spectrum. 
 
