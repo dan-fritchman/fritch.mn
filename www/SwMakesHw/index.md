@@ -12,7 +12,7 @@ Front Matter & Contents
 
 If you're among those software-engineering inclined, we'd love your feedback on what makes sense here and what doesn't. E-mail [dan@hw21.io](mailto:dan@hw21.io), reply on [Medium](https://medium.com/software-makes-hardware), or comment on [Twitter](https://twitter.com/dan_fritchman).  
 
-The format of *Software Makes Hardware* is somewhere between a blog and a book.  We generally think of and refer to each page as a more of a "chapter" than an "article" or "post".  Chapters stand alone as best they can, but inevitably refer to prior chapters to some extent.  
+The format of *Software Makes Hardware* is somewhere between a blog and a book.  We generally think of and refer to each page as more of a "chapter" than an "article" or "post".  Chapters stand alone as best they can, but inevitably refer to prior chapters to some extent.  
 
 There will be a few differences from all of these formats: notably, we reserve the right to update any content at any time.  Both software and hardware are ever-evolving fields.  The state of the art, our perspective on best practices, and the underlying industry realities will change over time.  Each page reflects our views as of its publication.  And those views are also subject to change with time.  The entire history of each page will be available [on GitHub](https://github.com/dan-fritchman/fritch.mn).  
 
