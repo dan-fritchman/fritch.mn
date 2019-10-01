@@ -2,10 +2,16 @@ const path = require('path')
 
 module.exports = {
   plugins: [
+    {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [`gatsby-remark-copy-linked-files`],
+    },
+  },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
     'gatsby-plugin-catch-links',
-    `gatsby-plugin-sharp`,
+    'gatsby-plugin-sharp',
     {
       resolve: `gatsby-mdx`,
       options: {

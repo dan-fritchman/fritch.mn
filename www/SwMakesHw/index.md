@@ -7,6 +7,7 @@ Front Matter & Contents
 * [The Languages of Hardware](./0001-the-languages-of-hardware)
 * [Models All the Way Down](./0002-models-all-the-way-down)
 * [Event-Driven & Reactive Hardware](./0003-reactive-event-driven-hardware)
+* [Analog & Transistor-Level Simulation](./0004-analog-simulation)
 
 *Software Makes Hardware* is a dive into how silicon and electronics get designed, for the software-engineering inclined.  (It turns out we're not so different after all.) 
 
