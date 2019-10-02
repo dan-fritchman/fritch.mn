@@ -13,7 +13,7 @@ This mode of circuit simulation is often referred to as *[SPICE](https://en.wiki
 
 If you've taken freshman physics (and especially if you've studied electrical engineering), you've probably been asked to solve problems in linear circuits.  For example we can imagine a (somewhat) arbitrary network of resistors and current sources. 
 
-![](resistor-cube.png)
+![](img/resistor-cube.png)
 
 Problems-statements are typically something like: *given the values of the elements, what are the node voltages in this circuit*?  (This particular circuit is of course not very arbitrary; it's a common topic of interview problems and brain teasers.)
 
@@ -74,7 +74,7 @@ vs
 [5*IR/6, IR/2, IR/2, IR/2, IR/3, IR/3, IR/3]
 ```
 
-These results are in line with typical [intuitive solutions](http://web.physics.ucsb.edu/~lecturedemonstrations/Composer/Pages/64.42.html) of the resistor-cube problem, which typically look for the `5*R/6` equivalent-resistance between nodes zero and one.  Sympy was kind enough to give us the other six node-voltages for free.  (They also line up with the intuitive method.) 
+These results are in line with more common [intuitive solutions](http://web.physics.ucsb.edu/~lecturedemonstrations/Composer/Pages/64.42.html) of the resistor-cube problem, which typically look for the `5*R/6` equivalent-resistance between nodes zero and one.  Sympy was kind enough to give us the other six node-voltages for free.  (They also line up with the intuitive method.) 
 
 In practice, this sort of symbolic analysis is pretty, pretty rare.  Both the matrix inversion and symbolic solution prove aways too costly for all but the smallest toy-circuits.  Instead numeric values are adopted for parameters and component values (and therefore, the matrix elements), and numeric techniques are used to find solutions.  For example with parameter value of `I*R=1.0V`, we can use numeric solvers such as `numpy.linalg` to solve the same system: 
 
@@ -184,7 +184,7 @@ x_k     f(x_k)   f'(x_k)    x_k+1
 
 We can see how quickly this is converging towards `sqrt(2)`. 
 
-Iterative methods come with a few built in problems.  First, there is no a priori definition of when we are *done*.  How close is close enough?  In general - unlike the canned square root of two case - we don’t have the right answer lying around at hand.  (The problems wouldn’t be much worth solving if we did.)  Iterative methods therefore require *convergence criteria*.  Typical criteria check that successive guesses have changed by sufficiently little, ie that `x_k+1 - x_k < (some amount)`.  Fancier criteria include an absolute error check, i.e. a goal that the value of `f(x)` be sufficiently close to zero.  SPICE users will be familiar with parameters of the form `reltol` and `abstol` (and family), short for relative and absolute tolerance, which serve as controls for these convergence criteria. 
+Iterative methods come with a few built in problems.  First, there is no a priori definition of when we are *done*.  How close is close enough?  In general - unlike the canned square root of two case - we don’t have the right answer lying around at hand.  (The problems wouldn’t be much worth solving if we did.)  Iterative methods therefore require *convergence criteria*.  Typical criteria check that successive guesses have changed by sufficiently little, i.e. that `x_k+1 - x_k < (some amount)`.  Fancier criteria include an absolute error check, i.e. a goal that the value of `f(x)` be sufficiently close to zero.  SPICE users will be familiar with parameters of the form `reltol` and `abstol` (and family), short for relative and absolute tolerance, which serve as controls for these convergence criteria. 
 
 Second, iterative methods will not necessarily converge - even if there is a right answer.  Newton-Raphson and similar methods generally require a set of heuristics to help their chances.  For many functions, Newton-style methods can succeed or fail based on a single crucial parameter: the initial guess.  Circuits produce these situations all the time.  Veteran circuit simulators will recognize these as *convergence failures*, usually packed with cryptic error messages (sometimes including at least *something* about “convergence”).  Analog pros are used to applying a common set of simulation-tricks to make these go away. 
 
@@ -256,7 +256,7 @@ How does a transistor-level solver see this circuit?  Again, more or less as a m
 
 *Figure A: CMOS Latch Contour*
 
-This plot is a result of [TeachSpice's](https://github.com/HW21/TeachSpice) `Countour` analysis, which sweeps the Newton-solver's possible guesses, and measures the estimation error `f(x_k)` at each.  The matrix solver does something akin to a gradient descent across this surface, starting from an initial guess and making its way towards one of the local minima. 
+Figure A is a result of [TeachSpice's](https://github.com/HW21/TeachSpice) `Countour` analysis, which sweeps the Newton-solver's possible guesses, and measures the estimation error `f(x_k)` at each.  The matrix solver does something akin to a gradient descent across this surface, starting from an initial guess and making its way towards one of the local minima. 
 
 In other words, simulation starts by making something like this translation:
 
