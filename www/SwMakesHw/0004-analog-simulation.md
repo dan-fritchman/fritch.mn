@@ -3,7 +3,7 @@
 
 ![](img/cmos-latch-sch-contour.png)
 
-The last [*Software Makes Hardware*](https://medium.com/software-makes-hardware) chapter introduced the simulation model of most digital circuits: a combination of [event-driven and reactive](https://medium.com/software-makes-hardware/event-driven-reactive-hardware-a1fb8bc8d84d) logic.  Many circuits - including nearly everything *analog*, and most described at a *transistor-level*, don't fit this paradigm.  Predicting their behavior requires an entirely different view of how they work, which we'll refer to as a different paradigm or *model of computation*.  
+Our last [*Software Makes Hardware*](https://medium.com/software-makes-hardware) chapter introduced the simulation model of most digital circuits: a combination of [event-driven and reactive](https://medium.com/software-makes-hardware/event-driven-reactive-hardware-a1fb8bc8d84d) logic.  Many circuits - including nearly everything *analog*, and most described at a *transistor-level*, don't fit this paradigm.  Predicting their behavior requires an entirely different view of how they work, which we'll refer to as a different paradigm or *model of computation*.  
 
 This mode of circuit simulation is often referred to as *[SPICE](https://en.wikipedia.org/wiki/SPICE)*, after the seminal program originally developed at UC Berkeley.  In the decades since, much of the work in this in this area has retained a "spice"-suffixed naming convention - including all of the code shown here, available at [github.com/HW21/TeachSpice](https://github.com/HW21/TeachSpice). 
 
