@@ -3,21 +3,21 @@
 
 ![](img/cmos-latch-sch-contour.png)
 
-The last [*Software Makes Hardware*](https://medium.com/software-makes-hardware) chapter introduced the simulation model of most digital circuits: a combination of [event-driven and reactive](https://medium.com/software-makes-hardware/event-driven-reactive-hardware-a1fb8bc8d84d) logic.  Many circuits - including nearly everything *analog*, and most described at a *transistor-level*, don't fit this paradigm.  Predicting their behavior requires an entirely different view of how they work, which we'll refer to as a different paradigm or *model of computation*.  
+Our last [*Software Makes Hardware*](https://medium.com/software-makes-hardware) chapter introduced the simulation model of most digital circuits: a combination of [event-driven and reactive](https://medium.com/software-makes-hardware/event-driven-reactive-hardware-a1fb8bc8d84d) logic.  Many circuits - including nearly everything *analog*, and most described at a *transistor-level*, don't fit this paradigm.  Predicting their behavior requires an entirely different view of how they work, which we'll refer to as a different paradigm or *model of computation*.  
 
-This mode of circuit simulation is often referred to as *[SPICE](https://en.wikipedia.org/wiki/SPICE)*, after the seminal program originally developed at UC Berkeley.  In the decades since, much of the work in this in this area has retained a "spice"-suffixed naming convention - including all of the code shown here, available at [github.com/HW21/TeachSpice](https://github.com/HW21/TeachSpice). 
+This mode of circuit simulation is often referred to as [SPICE](https://en.wikipedia.org/wiki/SPICE), after the seminal program originally developed at UC Berkeley in the early 1970s.  In the decades since, much of the work in this in this area has retained a "spice"-suffixed naming convention - including all of the code shown here, available at [github.com/HW21/TeachSpice](https://github.com/HW21/TeachSpice). 
 
 ![https://github.com/HW21/TeachSpice](img/hw21-github.png)
 
 ## The Analog Model of Computation
 
-If you've taken freshman physics (and especially if you've studied electrical engineering), you've probably been asked to solve problems in linear circuits.  For example we can imagine a (somewhat) arbitrary network of resistors and current sources. 
+If you've taken freshman physics (and especially if you've studied electrical engineering), you've probably been asked to solve problems in linear circuits.  For example, let’s imagine a (somewhat) arbitrary network of resistors and current sources — such as this one:
 
 ![](img/resistor-cube.png)
 
-Problems-statements are typically something like: *given the values of the elements, what are the node voltages in this circuit*?  (This particular circuit is of course not very arbitrary; it's a common topic of interview problems and brain teasers.)
+Problem-statements are typically something along this lines of: *”given a set of component-values, what are the node voltages in this circuit?”.* (This particular circuit is of course not very arbitrary; it’s a common topic of interview problems and brain teasers.)
 
-How would we put a program to the task of solving this, in any specific case, and more importantly in the general case?  First recall how this went in that physics class - i.e., how we would do this on pen and paper.  This boiled down to compiling a system of equations, with information coming from two sources:
+How would we put a program to the task of solving this sort of problem? First, recall how it went in physics class — i.e., how we’d proceed with pen and paper. We’d start by compiling a system of equations, with information coming from two sources:
 
 * First, *Kirchoff's Laws* are re-statements of more fundamental physical laws.  Kirchoff's current law is a circuit-focused restatement of conservation of charge.  The voltage law similarly captures conservation of energy, particularly electrical potential energy. 
 * Second, the circuit's *components* provide voltage-current relationships between their terminals.  Ohm's Law is probably the best known, describing the `V=I*R` relationship of a resistor.  Voltage and current sources have even simpler descriptions, of the form `V=V0` and `I=I0`.  More complex devices, including nonlinear elements such as diodes and transistors, and dynamic elements such as capacitors and inductors, add a few wrinkles covered in later sections. 
@@ -76,7 +76,7 @@ vs
 
 These results are in line with more common [intuitive solutions](http://web.physics.ucsb.edu/~lecturedemonstrations/Composer/Pages/64.42.html) of the resistor-cube problem, which typically look for the `5*R/6` equivalent-resistance between nodes zero and one.  Sympy was kind enough to give us the other six node-voltages for free.  (They also line up with the intuitive method.) 
 
-In practice, this sort of symbolic analysis is pretty, pretty rare.  Both the matrix inversion and symbolic solution prove aways too costly for all but the smallest toy-circuits.  Instead numeric values are adopted for parameters and component values (and therefore, the matrix elements), and numeric techniques are used to find solutions.  For example with parameter value of `I*R=1.0V`, we can use numeric solvers such as `numpy.linalg` to solve the same system: 
+In practice, this sort of symbolic analysis is [pretty, pretty rare](https://www.youtube.com/watch?v=O_05qJTeNNI).  Both the matrix inversion and symbolic solution prove aways too costly for all but the smallest toy-circuits.  Instead, numeric values are adopted for parameters and component values (and therefore, the matrix elements), and numeric techniques are used to find solutions.  For example, with the (sole) parameter value of `I*R=1.0V`, we can use numeric solvers such as `numpy.linalg` to solve the same system: 
 
 ```python
 rhs = np.transpose(np.array([1,0,0,0,0,0,0]))
@@ -91,7 +91,7 @@ array([0.83333333, 0.5       , 0.5       , 0.5       , 0.33333333,
        0.33333333, 0.33333333])
 ```
 
-Which squares with the symbolic analysis as well as the [intuitive solutions](http://web.physics.ucsb.edu/~lecturedemonstrations/Composer/Pages/64.42.html).  
+Which squares with the symbolic analysis as well as the [intuitive solutions](http://web.physics.ucsb.edu/~lecturedemonstrations/Composer/Pages/64.42.html). (Although no practical circuit-solver would use the dense-matrix methods of `numpy.linalg.solve`; instead [sparse matrix](https://en.wikipedia.org/wiki/Sparse_matrix) methods are essentially universal.)
 
 
 ## Non-Linear Circuits and Systems 
@@ -115,7 +115,7 @@ Inserting such a component into our linear solver causes it to fall flat on its 
 
 ![](img/cmos-latch-sch.png)
 
-As a central example, we'll look at a nearly-ubiquitous four-transistor circuit.  This *CMOS Latch* is most commonly used for creating a single bit of memory.  Something like it forms the core of every bit of [SRAM](https://en.wikipedia.org/wiki/Static_random-access_memory), every bit of [cache](https://en.wikipedia.org/wiki/Cache_(computing)), and every [flip-flop](https://en.wikipedia.org/wiki/Flip-flop_(electronics)).  The computer you're using right now includes at least a few million - and likely a few billion - instances of this. 
+As a central example, let’s look at a nearly-ubiquitous four-transistor circuit.  This *CMOS latch* is most commonly used for creating a single bit of memory.  Something like it forms the core of every bit of [SRAM](https://en.wikipedia.org/wiki/Static_random-access_memory), every bit of [cache](https://en.wikipedia.org/wiki/Cache_(computing)), and every [flip-flop](https://en.wikipedia.org/wiki/Flip-flop_(electronics)).  The computer you’re using right now includes at least a few million (and likely a few billion) instances.
 
 This circuit works by cross-coupling two [CMOS inverters](https://en.wikipedia.org/wiki/Inverter_(logic_gate)) in a positive feedback loop.  In terms of boolean logic gates, we can represent it as such:
 
@@ -138,7 +138,7 @@ Despite its simplicity, this circuit features many of the aforementioned complic
 
 Temporarily setting aside the matrices and circuits, we'll step down to single-dimensional problems to introduce iterative non-linear solvers.  Among the most common, oldest, and most popular such algorithms is the [Newton–Raphson method](https://en.wikipedia.org/wiki/Newton%27s_method). 
 
-Iterative methods work something like a game of "too hot, too cold", operating on a sequence of guesses.  For example imagine attempting to find the square root of two, equipped only with multiplication (and hence the ability to take squares).  The guessing game could go something like:
+Iterative methods work something like a “hot/cold” game, operating on a sequence of guesses. For example, imagine attempting to find the square root of two, equipped only with multiplication (and hence the ability to take squares). The guessing game could go something like:
 
 ```
 Guess   Guess^2    Hot/Cold
@@ -172,7 +172,7 @@ f(x) = x**2 - 2 = 0
 df(x)/dx = 2x 
 ```
 
-Applying its update algorithm give us a bit more scientific sequences of guesses.
+Applying its update algorithm gives us a bit more scientific sequences of guesses.
 
 ```
 x_k     f(x_k)   f'(x_k)    x_k+1
@@ -184,13 +184,13 @@ x_k     f(x_k)   f'(x_k)    x_k+1
 
 We can see how quickly this is converging towards `sqrt(2)`. 
 
-Iterative methods come with a few built in problems.  First, there is no a priori definition of when we are *done*.  How close is close enough?  In general - unlike the canned square root of two case - we don’t have the right answer lying around at hand.  (The problems wouldn’t be much worth solving if we did.)  Iterative methods therefore require *convergence criteria*.  Typical criteria check that successive guesses have changed by sufficiently little, i.e. that `x_k+1 - x_k < (some amount)`.  Fancier criteria include an absolute error check, i.e. a goal that the value of `f(x)` be sufficiently close to zero.  SPICE users will be familiar with parameters of the form `reltol` and `abstol` (and family), short for relative and absolute tolerance, which serve as controls for these convergence criteria. 
+Iterative methods come with a few built in problems.  First, there is no a priori definition of when we are *done*.  How close is close enough?  In general - unlike the canned square root of two case - we don’t have the right answer lying around at hand.  (The problems wouldn’t be much worth solving if we did.)  Iterative methods therefore require *convergence criteria*.  Typical criteria check that successive guesses have changed by sufficiently little, i.e., that `x_k+1 - x_k < (some amount)`.  Fancier criteria include an absolute error check, i.e., a goal that the value of `f(x)` be sufficiently close to zero.  SPICE users will be familiar with parameters of the form `reltol` and `abstol` (and family), short for relative and absolute tolerance, which serve as controls for these convergence criteria. 
 
 Second, iterative methods will not necessarily converge - even if there is a right answer.  Newton-Raphson and similar methods generally require a set of heuristics to help their chances.  For many functions, Newton-style methods can succeed or fail based on a single crucial parameter: the initial guess.  Circuits produce these situations all the time.  Veteran circuit simulators will recognize these as *convergence failures*, usually packed with cryptic error messages (sometimes including at least *something* about “convergence”).  Analog pros are used to applying a common set of simulation-tricks to make these go away. 
 
 ## Back To Matrices and Circuits
 
-Having taken the aside to introduce a scalar iterative method, we should return to our matrix formulation of circuits.  The matrix form of Newton’s method works (more or less) analogously to the scalar case.  
+Having taken the aside to introduce a scalar iterative method, let’s return to our matrix formulation of circuits.  The matrix form of Newton’s method works (more or less) analogously to the scalar case.  
 
 Our linear circuits produced matrix systems which we could express as:
 
@@ -204,7 +204,7 @@ Where:
 * `G` is a constant-valued matrix which describes the circuit, including the component connections and their values
 * `s` is a constant-valued vector, generally including things like independent sources
 
-The non-linear case, in contrast, requires we add a non-linear component `Hg(x)`:
+The non-linear case, in contrast, requires adding a non-linear component we’ll call `Hg(x)`:
 
 ```
 G*x + Hg(x) = s
@@ -218,14 +218,14 @@ To apply Newton's method, we cast this non-linear matrix system into the form `f
 f(x) = G*x + Hg(x) - s = 0
 ```
 
-Finding an update criteria requires taking something like a derivative of this.  Although this can in principal refer to a few different things, here we'll loosely refer to "derivatives" of these matrix-valued and vector-valued quantities.  The derivative of `f(x)` is also a matrix we'll call `Jf(x)`, often referred to as the *[Jacobian](https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant)*. 
+Finding an update criteria requires taking something like a derivative of this. This element-wise derivative of (vector-valued)`f(x)`is a matrix we'll call `Jf(x)`, often referred to as the [Jacobian](https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant).
 
 ```
 Jf(x) = df(x)/dx 
       = G + Jg(x)
 ```
 
-Where `Jg(x)` is the (again loosely defined) derivative of `Hg(x)`.  Now we can apply the Newton update formula to `f(x)` with derivative `Jf(x)`:
+Where `Jg(x)`is the (element-wise) derivative of `Hg(x)`. Now we can apply the Newton update formula to `f(x)`with derivative `Jf(x)`:
 
 ```
 x_k+1 = x_k - f(x_k) / Jf(x_k)
@@ -233,12 +233,12 @@ Jf(x_k) * (x_k+1 - x_k) = -1 * f(x_k)
 Jf(x_k) * dx = -1 * f(x_k) 
 ```
 
-Funny enough, we find that each update requires solving a linear matrix system.  (Conveniently we just sorted out how to do so.)  Other than that, this looks very much like the scalar Newton case.  We have to evaluate: 
+Where we have defined `dx === (x_k+1 - x_k)`as the change in guess between iterations. Funny enough, we find that each update requires solving a linear matrix system. (Conveniently we just sorted out how to do so.) Other than that, this looks very much like the scalar Newton case. We have to evaluate:
 
 * (a) the function to be zeroed, evaluated at our last guess, and
 * (b) its "derivative", also evaluated at our last guess
 
-And then make an update propoprtional to their ratio.  The primary complication is that while computing `f(x_k) / f'(x_k)` just required a single division, computing the matrix-analog `f(x_k) * inverse(Jf(x_k))` would either require a costly matrix inversion, or a solution to a linear system of equations. 
+And then make an update proportional to their ratio.  The primary complication is that while computing `f(x_k) / f'(x_k)` just required a single division, computing the matrix-analog `f(x_k) * inverse(Jf(x_k))` would either require a costly matrix inversion, or a solution to a linear system of equations. 
 
 In general, non-linear matrix methods follow a simple set of steps: 
 
@@ -266,17 +266,19 @@ Note we have not two but *three* intersections with the z-axis.  In other words,
 
 * V(a) = VDD, V(b) = 0V, or `a=True`, `b=False`
 * V(a) = 0V, V(b) = VDD, or `a=False`, `b=True`
-* V(a) = V(b) = VDD/2, which has no digital/ logical equivalent
+* V(a) = V(b) = VDD/2, which has no digital/logical equivalent
 
 Which of these solutions do we land on?   That largely depends on our initial guess.  
 
 ![](img/cmos-latch-solns.png)
 
-*Figure B: CMOS Latch solutions, as a function of initial guess*
+*Figure B: CMOS latch solutions, as a function of initial guess*
 
-Figure B plots the solver's final value of one of the voltages (`V(b)`) as a function of the (two-dimensional) initial guess.  We see that the equilibrium we land in for `V(b)` is primarily dictated by the vicinity of that initial guess.  Guesses "near" `V(b)==0` tend to "fall into" its state, as guesses "near" `V(b)==VDD` tend to fall into its.  (Note there are really four families of solutions here: in addition to the three equilibria, many initial guesses lead to finding *no solution*.  These are examples of convergence-failure.  While a more robust solver might correctly "pull in" more of them, it could not avoid them altogether.)
+Figure B plots the solver's final value of one of the voltages (`V(b)`) as a function of the (two-dimensional) initial guess.  We see that the equilibrium we land in for `V(b)` is primarily dictated by the vicinity of that initial guess.  Guesses "near" `V(b)==0` tend to "fall into" its state, as guesses "near" `V(b)==VDD` tend to fall into its.  
 
-Despite finding a third solution, don't expect this circuit to work very well as a *ternary* (rather than binary) memory.  The third solution is an *astable equilibrium*, which the circuit cannot hold indefinitely - or even for very long.  Many iterations of this circuit include this third equilibria near `V(a) = V(b) = VDD/2`.  In a physical realization of this circuit - or a sufficiently high-fidelity model - the combination of inevitable device noise and the circuit's positive feedback quickly kick it out of this state, and towards one of the two stable equilibria.   
+Note Figure B actually includes a *fourth* possible result: in addition to the three equilibria, many initial guesses lead to *no solution*. These are examples of convergence-failure. While a more robust solver might correctly "pull in" more of them, it could not avoid them altogether.
+
+Despite finding a third solution, don't expect this circuit to work very well as a [ternary](https://en.wikipedia.org/wiki/Three-valued_logic) (rather than binary) memory.  The third solution is an *astable equilibrium*, which the circuit cannot hold indefinitely - or even for very long.  Many iterations of this circuit include this third equilibria near `V(a) = V(b) = VDD/2`.  In a physical realization of this circuit - or a sufficiently high-fidelity model - the combination of inevitable device noise and the circuit's positive feedback quickly kick it out of this state, and towards one of the two stable equilibria.   
 
 ### Does Anybody Really Use This?
 
