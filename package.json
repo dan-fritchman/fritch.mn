@@ -21,8 +21,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
-    "deploy": "now && now alias $(pbpaste) fritch.mn && now alias $(pbpaste) www.fritch.mn",
-    "now-build": "yarn build",
+    "deploy": "now --target production",
     "format": "remark . -qfo && eslint . --fix"
   },
   "workspaces": [
