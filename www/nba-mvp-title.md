@@ -91,7 +91,7 @@ The 1989 and 1990 Pistons featured a similarly Hall-of-Fame-bound, relatively ba
 * 1979 Seattle Supersonics
 * 1975 Golden State Warriors 
 
-Past articles have covered just how weird the 70s - especially the late 70s - were in the NBA.  
+[Past articles](https://medium.com/@dan_fritchman/who-deserves-the-nbas-gold-patch-bd8f7dff8a6c) have covered just how weird the 70s - especially the late 70s - were in the NBA.  
 
 The 1975 Warriors were led by Rick Barry, a five-time All-NBA first team selection - roughly the tier just below MVPs.  He and Kawhi are the sole examples of non-MVPs *leading* their team to the championship, without an unusually egalitarian distribution of the team's workload. 
 
@@ -122,41 +122,43 @@ The 2019 *off-season* may provide more reason to believe *MVPs Only* could be le
 
 Despite the 2019 result and the NBA's newfound "parity", expect *MVPs Only* to continue to work.  Its prediction has never been perfect, only accurate the overwhelming majority of the time.  The 2019 Raptors joined five past champions in bucking the historical trend, which both qualitative and quantitative observers of basketball can agree on: winning at the highest levels requires the very best individual talents. 
 
-### Outlook 2020 
+### Outlook: 2020 
 
-Entering the 2019-20 season, there will be seven active MVPs on seven teams\*\*\*: 
+Entering the 2019-20 season, there will be seven active MVPs on six teams: 
 
 * Milwaukee Bucks (Antetokounmpo) 
-* Houston Rockets (Harden)
+* Houston Rockets (Harden, Westbrook)
 * Los Angeles Lakers (Lebron)
 * Golden State Warriors (Curry)
-* Oklahoma City Thunder (Westbrook)
 * Brooklyn Nets (Durant)
 * Detroit Pistons (Derrick Rose)
 
-Durant is likely to miss the 19-20 season due to injury, and Rose's past injuries have long ended the MVP-level portion of his career.  *MVPs Only* then leaves five teams with a chance at the 2020 championship: Milwaukee, Houston, Golden State, the Lakers, and OKC (or whichever team Westbrook ends up with).
+Durant is likely to miss the 19-20 season due to injury, and Rose's past injuries have long ended the MVP-level portion of his career.  *MVPs Only* then leaves four teams with a chance at the 2020 championship: Milwaukee, Houston, Golden State, and the Lakers.
 
 Most notably absent are the odds-on favorites to win the 2020 championship,  featuring the leader of the 2019 champions: the newly-minted Kawhi-PG Clippers.  
 
-The 2019-20 season may of course add a new member to basketball's most select group.  As of July 2019, betting markets rated these ten players as most likely to win the 2020 MVP:
+The 2019-20 season may of course add a new member to basketball's most select group.  As of October 2019, betting markets rated these ten players as most likely to win the 2020 MVP:
 
-* Giannis Antetokounmpo: +325
-* LeBron James: +500
-* Kawhi Leonard: +600
-* Anthony Davis: +750
-* James Harden: +750
-* Stephen Curry: +1100
-* Paul George: +1100
-* Damian Lillard: +1400
-* Joel Embiid: +1700
-* Russell Westbrook: +1800
+* Giannis Antetokounmpo	+300
+* Stephen Curry	+550
+* LeBron James	+650
+* Anthony Davis	+700
+* James Harden	+800
+* Kawhi Leonard	+900
+* Joel Embiid	+1200
+* Nikola Jokic	+1200
+* Russell Westbrook	+1400
+* Paul George	+1600
 
-In addition to the five past MVPs, this top-ten list adds five players from three teams: Kawhi and Paul George from the Clippers, Lillard from Portland, and Embiid from Philadelphia.  Anthony Davis joins Lebron as Lakers representatives.  
+In addition to the five past MVPs, this top-ten list adds five players from three teams: Kawhi Leonard and Paul George from the Clippers, Jokic from Denver, and Embiid from Philadelphia.  Anthony Davis joins Lebron as Lakers representatives.  
 
-It's rare for even seven teams to enter an NBA season with a realistic (say, greater than 1%) chance of winning a championship.  2019-20 looks to be unusually up for grabs.  Perhaps teams from outside this list (Utah, Denver) can claim just as good of chances to win the 2020 title.  
+It's rare for even seven teams to enter an NBA season with a realistic (say, greater than 1%) chance of winning a championship.  2019-20 looks to be unusually up for grabs.  Perhaps teams from outside this list (Utah, Portland) can claim just as good of chances to win the 2020 title.  
 
 But history says to expect one of the MVPs to end up lifting the Larry O-B. 
 
+---
+
+*This article was updated to reflect the complete 2019 off-season, notably including the trade of Russell Westbrook to Houston.*
 
 ---
 
@@ -164,5 +166,4 @@ But history says to expect one of the MVPs to end up lifting the Larry O-B.
 
 \*\* LeNail, 2019, NN-SVG: Publication-Ready Neural Network Architecture Schematics. Journal of Open Source Software, 4(33), 747, https://doi.org/10.21105/joss.00747
 
-\*\*\* Absent a pre-season Russell Westbrook trade to one of the other six. 
 
