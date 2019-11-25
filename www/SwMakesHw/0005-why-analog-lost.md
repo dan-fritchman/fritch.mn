@@ -189,7 +189,7 @@ More important: nature is analog, except when it isn't.  Temperature, air pressu
 
 *("Champion" in the same sense as these guys, despite one getting his head crushed and the other becoming a zombie.)*
 
-Prospects of an "analog renaissance" have been promted by many, perhaps none more prominent than historian [George Dyson](https://www.edge.org/memberbio/george_dyson).  Dyson's work spans the modern history of computing, science, and technology, and prospects for its future.  You can him find speaking at [TED](https://www.youtube.com/watch?v=EF692dBzWAs), discussing artificial intelligence [in books](https://www.amazon.com/dp/B07D6C1X3X/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1), on [Edge.org](https://www.edge.org/conversation/george_dyson-possible-minds-25-ways-of-looking-at-ai), or on [popular podcasts](https://samharris.org/podcasts/153-possible-minds/).  He is also the son of quantum electrodynamics pioneer Freeman Dyson. 
+Prospects of an "analog renaissance" have been promoted by many, perhaps none more prominent than historian [George Dyson](https://www.edge.org/memberbio/george_dyson).  Dyson's work spans the modern history of computing, science, and technology, and prospects for its future.  You can him find speaking at [TED](https://www.youtube.com/watch?v=EF692dBzWAs), discussing artificial intelligence [in books](https://www.amazon.com/dp/B07D6C1X3X/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1), on [Edge.org](https://www.edge.org/conversation/george_dyson-possible-minds-25-ways-of-looking-at-ai), or on [popular podcasts](https://samharris.org/podcasts/153-possible-minds/).  He is also the son of quantum electrodynamics pioneer Freeman Dyson. 
 
 While Mr. Dyson clearly believes that [the future of computing is analog](https://onezero.medium.com/the-future-of-computing-is-analog-e758471fbfe1), he has a bit rarer take on the current state of affairs.  He writes that this revolution is not only in our imminent future, but has already been happening all around us, practically right under our noses.  More than once Mr. Dyson has keynote-spoken on how we have gone [from analog to digital](https://www.youtube.com/watch?v=Ej7gGEjje_Q), [and back](https://www.youtube.com/watch?v=4si_FSCfe1g).  From a recent Edge.org [conversation](https://www.edge.org/conversation/george_dyson-ai-that-evolves-in-the-wild) and [podcast](https://podcasts.apple.com/us/podcast/george-dyson-ai-that-evolves-in-the-wild-8-14-19/id1451643895?i=1000446888481):
 
@@ -259,6 +259,14 @@ To be fair, quantum computing offers promises that analog never could.  If only 
 As a twenty year old student of physics and engineering, I was convinced that my life's work would be towards ushering out the digital era, and ushering in its quantum replacement.  Fifteen years later, I expect that quantum computing won't amount to shit, at least in our lifetime.  (By "shit", I mean a material economic or popular impact, outside of a research setting.)  
 
 Maybe after our AI overlords take control. 
+
+
+
+---
+
+*While this chapter has been a little different, [Software Makes Hardware](https://medium.com/software-makes-hardware) is (usually) a dive into how silicon and electronics get designed, for the software-engineering inclined. (It turns out we're not so different after all.)*
+
+
 
 
 

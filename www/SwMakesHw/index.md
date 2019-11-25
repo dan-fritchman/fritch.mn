@@ -8,6 +8,7 @@ Front Matter & Contents
 * [Models All the Way Down](./0002-models-all-the-way-down)
 * [Event-Driven & Reactive Hardware](./0003-reactive-event-driven-hardware)
 * [Analog & Transistor-Level Simulation](./0004-analog-simulation)
+* [Why Analog Lost](./0005-why-analog-lost)
 
 *Software Makes Hardware* is a dive into how silicon and electronics get designed, for the software-engineering inclined.  (It turns out we're not so different after all.) 
 
