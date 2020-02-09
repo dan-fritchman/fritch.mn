@@ -23,6 +23,7 @@
     "build": "gatsby build",
     "deploy": "now --target production",
     "deploy-dev": "now",
+    "raw-html": "python -m markdown -x fenced_code -- ",
     "format": "remark . -qfo && eslint . --fix"
   },
   "workspaces": [
