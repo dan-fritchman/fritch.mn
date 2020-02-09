@@ -9,6 +9,7 @@ Front Matter & Contents
 * [Event-Driven & Reactive Hardware](/SwMakesHw/0003-reactive-event-driven-hardware)
 * [Analog & Transistor-Level Simulation](/SwMakesHw/0004-analog-simulation)
 * [Why Analog Lost](/SwMakesHw/0005-why-analog-lost)
+* [Solving Sparse Matrix Systems in Rust](/SwMakesHw/0006-sparse-matrix-rust)
 
 *Software Makes Hardware* is a dive into how silicon and electronics get designed, for the software-engineering inclined.  (It turns out we're not so different after all.) 
 
