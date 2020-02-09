@@ -22,6 +22,7 @@
     "dev": "gatsby develop",
     "build": "gatsby build",
     "deploy": "now --target production",
+    "deploy-dev": "now",
     "format": "remark . -qfo && eslint . --fix"
   },
   "workspaces": [
