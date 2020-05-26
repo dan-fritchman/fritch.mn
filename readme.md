@@ -1,7 +1,7 @@
 
 # fritch.mn
 
-Source material for https://fritch.mn
+Source material for https://fritch.mn / https://dan.fritch.mn
 
 * Authored in MDX
 * Built with Gatsby

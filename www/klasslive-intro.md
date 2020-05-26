@@ -233,7 +233,7 @@ class KlassLiveRouter extends React.Component {
 
 Upon getting starting with React, I really didn't like this. I found Next's file-system-based routing aways more intuitive. But using Next proved much harder, particularly for such a noob. Its marriage of the *same* code running on both the client and server made things like initialization and setup aways more mind-bending. Attempts to pair this with [MobX](https://mobx.js.org/README.html) likely didn't help. While I think Next has something pretty cool on hand, when in doubt KlassLive defaults to the most popular, largest-knowledge-base options: in this case Redux and React-Router. 
 
-Vercel's related [Now](https://github.com/zeit/now) service deserves additional credit, as it hosts the Klass.Live SPA, along with the [intro presentation](https://klasslivelightning.hw21.now.sh/) from PyConDe 2019, as well as my own [personal website](https://fritch.mn/). Its serverless functions also run a limited-functionality version of the KlassLive GraphQL server. 
+Vercel's related [Now](https://github.com/zeit/now) service deserves additional credit, as it hosts the Klass.Live SPA, along with the [intro presentation](https://klasslivelightning.hw21.now.sh/) from PyConDe 2019, as well as my own [personal website](https://dan.fritch.mn/). Its serverless functions also run a limited-functionality version of the KlassLive GraphQL server. 
 
 
 

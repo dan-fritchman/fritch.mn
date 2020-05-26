@@ -19,6 +19,6 @@ The format of *Software Makes Hardware* is somewhere between a blog and a book. 
 
 There will be a few differences from all of these formats: notably, we reserve the right to update any content at any time.  Both software and hardware are ever-evolving fields.  The state of the art, our perspective on best practices, and the underlying industry realities will change over time.  Each page reflects our views as of its publication.  And those views are also subject to change with time.  The entire history of each page will be available [on GitHub](https://github.com/dan-fritchman/fritch.mn).  
 
-The canonical home for *Software Makes Hardware* is [fritch.mn](https://fritch.mn).  The more popular home is on [Medium](https://medium.com/software-makes-hardware). 
+The canonical home for *Software Makes Hardware* the blog-section of [dan.fritch.mn](https://dan.fritch.mn).  The more popular home is on [Medium](https://medium.com/software-makes-hardware). 
 
 

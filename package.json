@@ -1,9 +1,6 @@
 {
   "private": true,
   "license": "MIT",
-  "homepage": "https://fritch.mn",
-  "repository": "dan-fritchman/fritch.mn",
-  "bugs": "https://github.com/dan-fritchman/fritch.mn/issues",
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.1.0",

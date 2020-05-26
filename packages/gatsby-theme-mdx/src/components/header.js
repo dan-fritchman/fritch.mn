@@ -102,7 +102,7 @@ export default ({ toggleMenu, dark, setDark }) => (
     >
       <img
         src="https://github.com/dan-fritchman.png"
-        alt="fritch.mn"
+        alt="dan.fritch.mn"
         height="32"
         css={css({
           mr: 3
@@ -116,7 +116,7 @@ export default ({ toggleMenu, dark, setDark }) => (
           }
         }}
       >
-        fritch.mn
+        dan.fritch.mn
       </span>
     </Link>
     <div css={{ margin: 'auto' }} />
