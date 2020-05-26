@@ -10,9 +10,9 @@ Introducing [KlassLive](https://github.com/HW21/KlassLive)
 
 Before COVID-19 made Zoom-teaching synonymous with, well, teaching, the future of education appeared to consist of (a) uploading videos online, and (b) sitting back and letting people watch them. The most prominent examples have been MOOCs: massive open online courses, designed to expand reach by orders of magnitude to thousands of new learners. While MOOCs have dramatically expanded access to all sorts of content, it's hard to find any given *learner* getting more out of the MOOC format than more traditional, personal methods. 
 
-In that sense, Zoom and MOOCs have a few lessons to share. First, live-learning eats pre-recorded-learning's lunch. Interacting with people matters. Second, interactive-learning eats passive-learning's supper. *Doing stuff* rather than passively listenting *really* matters. Combining the two is especially powerful. Organizations such as [Lambda School](https://lambdaschool.com/) and Stanford's [Code in Place](https://engineering.stanford.edu/news/free-coding-education-time-covid-19) have made the realization that being *online* does not necessarily mean asynchronous, pre-recorded, and passive. 
+In that sense, Zoom and MOOCs have a few lessons to share. First, live-learning eats pre-recorded-learning's lunch. Interacting with people matters. Second, interactive-learning eats passive-learning's supper. *Doing stuff* rather than passively listening *really* matters. Combining the two is especially powerful. Organizations such as [Lambda School](https://lambdaschool.com/) and Stanford's [Code in Place](https://engineering.stanford.edu/news/free-coding-education-time-covid-19) have made the realization that being *online* does not necessarily mean asynchronous, pre-recorded, and passive. 
 
-Note by *teaching & learning*, we mean something that extends aways beyond traditional education. Think of all the adults trying to convey information to one another at professional conferences, in corporate training sessions, product demonstrations, and the like. These sessions tend to succeed at being live, but have a much harder time being particulary interactive, for understandable reasons. Technical sessions - those introducing pieces of software, or ideas in engineering or math - have a tougher time interactify-ing than, say, the philosophy of Nietzsche or Spinoza. The latter just requires people talking; the former requires some non-zero amount of techno-stuff. 
+Note by *teaching & learning*, we mean something that extends aways beyond traditional education. Think of all the adults trying to convey information to one another at professional conferences, in corporate training sessions, product demonstrations, and the like. These sessions tend to succeed at being live, but have a much harder time being particularly interactive, for understandable reasons. Technical sessions - those introducing pieces of software, or ideas in engineering or math - have a tougher time interactify-ing than, say, the philosophy of Nietzsche or Spinoza. The latter just requires people talking; the former requires some non-zero amount of techno-stuff. 
 
 
 
@@ -188,7 +188,7 @@ Where each `...CellData` is a GraphQL fragment, consisting of a re-used set of f
 
 On the server, GraphQL executes through a series of resolver functions. Queries and mutations essentially fall through a tree of resolver function-calls, passing the results of each onto the next layer. Klass data is stored in a MongoDB instance running on MongoDb.com's Atlas service. The popular [Mongoose](https://mongoosejs.com/) object-document mapping library dictates the schema and provides a semblance of type-safety for the server-side code. 
 
-Apollo also incudes a set of scripts which generate [TypeScript](https://www.typescriptlang.org/) interfaces from GraphQL's schema descrption language. Besides this auto-generated code, TypeScript is largely a curiosity to KlassLive. Its classes are used in a few sections where I tended to screw up conversions between in-memory, on-wire, and in-database versions of similar data, such as the Klass notebooks. All in all, it's not clear whether it has helped or hurt. 
+Apollo also includes a set of scripts which generate [TypeScript](https://www.typescriptlang.org/) interfaces from GraphQL's schema description language. Besides this auto-generated code, TypeScript is largely a curiosity to KlassLive. Its classes are used in a few sections where I tended to screw up conversions between in-memory, on-wire, and in-database versions of similar data, such as the Klass notebooks. All in all, it's not clear whether it has helped or hurt. 
 
 
 
@@ -212,7 +212,7 @@ gVisor's security comes at some cost. First it adds a performance overhead above
 
 ### Roads Not Taken
 
-Along the path of building KlassLive, a few high-potential tools somethinged and were abandoned. Probably most prominent is Vercel's [NextJs](https://nextjs.org/). While Next's primary contribution is in extending React's component lifecycle to include server-side rendering, I found it attractive for different reasons. The most-popular method for intra-app routing in React uses component-based routers, such as those from the popular [React-Router](https://reacttraining.com/react-router/). KlassLive's top level, for example, looks something like:
+Along the path of building KlassLive, a few high-potential tools were also tried and abandoned. Probably most prominent is Vercel's [NextJs](https://nextjs.org/). While Next's primary contribution is in extending React's component lifecycle to include server-side rendering, I found it attractive for different reasons. The most-popular method for intra-app routing in React uses component-based routers, such as those from the popular [React-Router](https://reacttraining.com/react-router/). KlassLive's top level, for example, looks something like:
 
 ```jsx
 
