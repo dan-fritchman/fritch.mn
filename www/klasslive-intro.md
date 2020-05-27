@@ -18,7 +18,7 @@ Note by *teaching & learning*, we mean something that extends aways beyond tradi
 
 ## Interactive Learning: Some Problems
 
-First, everyone needs a sufficiently-similar environment to live-interact *in*. Generally this means learners' first steps are installing or setting up some piece(s) of software. Modern programming languages make this easier with sophisticated package management. Topics like my own specialty (hardware) often require a lot more pain. Installation can be time-consuming, and worse require a long cascade of undocumented pre-req steps. 
+First, everyone needs a sufficiently similar environment to live-interact *in*. Generally this means learners' first steps are installing or setting up some piece(s) of software. Modern programming languages make this easier with sophisticated package management. Topics like my own specialty (hardware) often require a lot more pain. Installation can be time-consuming, and worse, require a long cascade of undocumented pre-req steps. 
 
 ![](img/install.png)
 
@@ -113,23 +113,23 @@ Finally, KlassLive makes these sessions an interactive learning game. Responses 
 
 ## The KlassLive Stack 
 
-While Python was KlassLive's initially supported teaching & learning language, its implementation is built entirely in modern Javascript, atop a pile of incredible open-source software. While Jupyter is a significant source of KlassLive's inspiration, none of Jupyter's open-source code gets used under the hood. 
+While Python was KlassLive's initially supported teaching and learning language, its implementation is built entirely in modern Javascript, atop a pile of incredible open-source software. While Jupyter is a significant source of KlassLive's inspiration, none of Jupyter's open-source code gets used under the hood. 
 
-Building stuff like KlassLive is also not what I usually do. My day job is designing hardware, silicon, and the software that enables them. In walking through the KlassLive stack, I'll also share lessons learned adopting many of 2019's most popular web-app tools and libraries from the perspective of a fresh newcomer. 
+Building stuff like KlassLive is also not what I usually do. My day job is designing hardware, silicon, and the software that enables them. In walking through the KlassLive stack, I'll also share lessons learned adopting many of 2019's most popular web-app tools and libraries from the perspective of a newcomer. 
 
 KlassLive consists of three primary components: 
 
 * A single-page front end using React and friends, 
 * A GraphQL server, principally interacting with a MongoDB database, and 
-* A submission-runner which executes and grades responses 
+* A submission-runner which executes and grades responses.
 
-Authentication is managed by [Firebase](https://firebase.google.com/)'s integration with GitHub login. This was an element that I wanted absolutely no part of, and probably never will. While I found much of the Firebase ecosystem fairly wanting, its authentication support has been great. It's worked impeccably from day one with minimal custom code required. 
+Authentication is managed by [Firebase](https://firebase.google.com/)'s integration with GitHub. This was an element that I wanted absolutely no part of, and probably never will. While I found much of the Firebase ecosystem fairly wanting, its authentication support has been great. It's worked impeccably from day one with minimal custom code required. 
 
 
 
 ### Front-End
 
-Of the mountain of OSS KlassLive relies on, perhaps no piece is more essential than [React](https://reactjs.org/). For several years I knew about two things about React: (1) Facebook makes it, and (2) I don't really like Facebook. Ergo, React irrelevant. Upon actually comparing 2019's popular front-end frameworks, it took about three pages of tutorial to dispel that sentiment. React's combination of state-machine-components and removal of template-programming through its JSX syntax pretty quickly made it clear why it's become the most popular way to build web UIs. Learning about React was really what made me believe making something like KlassLive was possible (for me). There's no going back. 
+Of the mountain of OSS KlassLive relies on, perhaps no piece is more essential than [React](https://reactjs.org/). For several years I knew basically two things about React: (1) Facebook makes it, and (2) I don't really like Facebook. Ergo, React irrelevant. Upon actually comparing 2019's popular front-end frameworks, it took around three pages of tutorial to dispel that sentiment. React's combination of state-machine-components and removal of template-programming through its JSX syntax pretty quickly made it clear why it's become the most popular way to build web UIs. Learning about React was really what made me believe making something like KlassLive was possible (for me). There's no going back. 
 
 KlassLive also benefits from React's gigantic ecosystem. [Create React App](https://github.com/facebook/create-react-app) served as a project starter and navigation tool for JavaScript's fairly complicated cross-compilation systems. Nearly all of KlassLive's look and feel are created via [Material-UI](https://material-ui.com/), including all of the primary UI elements - problems, sidebars, menus, tables, and the like. Code-and Markdown editing can primarily be credited to the outstanding [CodeMirror](https://codemirror.net/), and to related libraries [react-codemirror2](https://github.com/scniro/react-codemirror2) and [react-markdown](https://github.com/rexxars/react-markdown). 
 
@@ -231,7 +231,7 @@ class KlassLiveRouter extends React.Component {
 }
 ```
 
-Upon getting starting with React, I really didn't like this. I found Next's file-system-based routing aways more intuitive. But using Next proved much harder, particularly for such a noob. Its marriage of the *same* code running on both the client and server made things like initialization and setup aways more mind-bending. Attempts to pair this with [MobX](https://mobx.js.org/README.html) likely didn't help. While I think Next has something pretty cool on hand, when in doubt KlassLive defaults to the most popular, largest-knowledge-base options: in this case Redux and React-Router. 
+Upon getting started with React, I really didn't like this. I found Next's file-system-based routing more intuitive. But using Next proved much harder, particularly for such a noob. Its marriage of the *same* code running on both the client and server made things like initialization and setup aways more mind-bending. Attempts to pair this with [MobX](https://mobx.js.org/README.html) likely didn't help. While I think Next has something pretty cool on hand, when in doubt KlassLive defaults to the most popular, largest-knowledge-base options: in this case Redux and React-Router. 
 
 Vercel's related [Now](https://github.com/zeit/now) service deserves additional credit, as it hosts the Klass.Live SPA, along with the [intro presentation](https://klasslivelightning.hw21.now.sh/) from PyConDe 2019, as well as my own [personal website](https://dan.fritch.mn/). Its serverless functions also run a limited-functionality version of the KlassLive GraphQL server. 
 
@@ -239,7 +239,7 @@ Vercel's related [Now](https://github.com/zeit/now) service deserves additional 
 
 ## Looking Forward
 
-KlassLive is open-source for all to use, either directly or as the basis for other work. While we welcome contributions via GitHub pull requests, I won't be actively developing KlassLive in the immediate term. While I think there's a lot it can offer, I'll be on my day job [making the chips](https://medium.com/software-makes-hardware). In my first few months back in the academic world I've also realized some other pressing problems which the KlassLive stack might help - namely, reading and writing. 
+KlassLive is open-source for all to use, either directly or as the basis for other work. While I welcome contributions via GitHub pull requests, I won't be actively developing KlassLive in the immediate term. There's a lot it can offer, and I'll be on my day job [making the chips](https://medium.com/software-makes-hardware). In my first few months back in the academic world I've also realized some other pressing problems which the KlassLive stack might help - namely, reading and writing. 
 
 Lastly, KlassLive owes thanks to much of the staff and start-up community at London's [Founders Factory](https://foundersfactory.com/), my temporary home away from home from summer 2019, who provided invaluable advice and encouragement, and to the enthusiastic audience at Berlin's 2019 installment of [PyConDE](https://de.pycon.org/). 
 
