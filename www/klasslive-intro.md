@@ -12,7 +12,7 @@ Before COVID-19 made Zoom-teaching synonymous with, well, teaching, the future o
 
 In that sense, Zoom and MOOCs have a few lessons to share. First, live-learning eats pre-recorded-learning's lunch. Interacting with people matters. Second, interactive-learning eats passive-learning's supper. *Doing stuff* rather than passively listening *really* matters. Combining the two is especially powerful. Organizations such as [Lambda School](https://lambdaschool.com/) and Stanford's [Code in Place](https://engineering.stanford.edu/news/free-coding-education-time-covid-19) have made the realization that being *online* does not necessarily mean asynchronous, pre-recorded, and passive. 
 
-Note by *teaching & learning*, we mean something that extends aways beyond traditional education. Think of all the adults trying to convey information to one another at professional conferences, in corporate training sessions, product demonstrations, and the like. These sessions tend to succeed at being live, but have a much harder time being particularly interactive, for understandable reasons. Technical sessions - those introducing pieces of software, or ideas in engineering or math - have a tougher time interactify-ing than, say, the philosophy of Nietzsche or Spinoza. The latter just requires people talking; the former requires some non-zero amount of techno-stuff. 
+Note by *teaching & learning*, I mean something that extends aways beyond traditional education. Think of all the adults trying to convey information to one another at professional conferences, in corporate training sessions, product demonstrations, and the like. These sessions tend to succeed at being live, but have a much harder time being particularly interactive, for understandable reasons. Technical sessions - those introducing pieces of software, or ideas in engineering or math - have a tougher time interactify-ing than, say, the philosophy of Nietzsche or Spinoza. The latter just requires people talking; the former requires some non-zero amount of techno-stuff. 
 
 
 
@@ -239,7 +239,7 @@ Vercel's related [Now](https://github.com/zeit/now) service deserves additional 
 
 ## Looking Forward
 
-KlassLive is open-source for all to use, either directly or as the basis for other work. While I welcome contributions via GitHub pull requests, I won't be actively developing KlassLive in the immediate term. There's a lot it can offer, and I'll be on my day job [making the chips](https://medium.com/software-makes-hardware). In my first few months back in the academic world I've also realized some other pressing problems which the KlassLive stack might help - namely, reading and writing. 
+KlassLive is open-source for all to use, either directly or as the basis for other work. While I welcome contributions via GitHub pull requests, I won't be actively developing KlassLive in the immediate term. While there's a lot more it can offer, I'll be on my day job [making the chips](https://medium.com/software-makes-hardware). In my first few months back in the academic world I've also realized some other pressing problems which the KlassLive stack might help - namely, reading and writing. 
 
 Lastly, KlassLive owes thanks to much of the staff and start-up community at London's [Founders Factory](https://foundersfactory.com/), my temporary home away from home from summer 2019, who provided invaluable advice and encouragement, and to the enthusiastic audience at Berlin's 2019 installment of [PyConDE](https://de.pycon.org/). 
 
